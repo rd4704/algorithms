@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Algorithms.Helpers;
                     
 namespace Algorithms
@@ -7,8 +8,8 @@ namespace Algorithms
     {
         public Node CreateBinarySearchTree()
         {
-            Node left = new Node(3, new Node(2, null, null), new Node(4, null, null));
-            Node right = new Node(8, new Node(6, null, null), new Node(10, null, null));
+            Node left = new Node(3, new Node(2), new Node(4));
+            Node right = new Node(8, new Node(6), new Node(10));
 
             return new Node(5, left, right);
         }
@@ -55,5 +56,27 @@ namespace Algorithms
 
 			Console.WriteLine(root.data);
 		}
+
+        public Node MinimalBST(int[] arr)
+        {
+            return CreateMinHeightBST(arr, 0, arr.Length - 1);
+        }
+
+        public Node CreateMinHeightBST(int[] arr, int start, int end)
+        {
+            if (end < start || arr.Length == 0 || arr == null) {
+                return null;
+            }
+
+            int mid = (start + end) / 2;
+
+            var node = new Node(arr[mid])
+            {
+                left = CreateMinHeightBST(arr, start, mid - 1),
+                right = CreateMinHeightBST(arr, mid+1, arr.Length - 1)
+            };
+
+            return node;
+        }
     }
 }

@@ -21,6 +21,12 @@ namespace Algorithms
 			bst.PreOrder(root);
 			Console.WriteLine("PostOrder BST Traversal");
 			bst.PostOrder(root);
+
+            Console.WriteLine("Create Minimal BST.");
+
+            int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var balanced = bst.MinimalBST(arr);
+            bst.PostOrder(balanced);
         }
 
 		static void BinaryTree() {
@@ -52,6 +58,9 @@ namespace Algorithms
 			Console.WriteLine(e == null ? "Employee not found" : e.name);
 			e = b.Search(root, "Soni");
 			Console.WriteLine(e == null ? "Employee not found" : e.name);
+
+            Console.WriteLine("\nChecking if path between two nodes exists? " + b.PathExists(root, "Sofia", "Lisa"));
+
 		}
 	}
 }
