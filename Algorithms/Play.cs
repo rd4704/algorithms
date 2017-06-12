@@ -1,16 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 using Algorithms.Helpers;
 
 namespace Algorithms
 {
-	class Program
+	class Play
 	{
 		static void Main(string[] args)
 		{
-            BST();
+            BinarySearch();
+            //BST();
 			//BinaryTree();
 			//BFS();
 		}
+
+        static void BinarySearch() {
+            List<int> haystack = new List<int>();
+            for (int i = 1; i < 1000000; i++) {
+                haystack.Add(i);
+            }
+
+            int needle = 333333333;
+            int idx = BinarySearchArr.Search(haystack.ToArray(), needle);
+
+            Console.WriteLine("Value " + needle + " found at : " + idx);
+        }
 
         static void BST() {
             BinarySearchTree bst = new BinarySearchTree();

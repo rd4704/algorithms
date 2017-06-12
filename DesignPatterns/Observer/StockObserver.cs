@@ -3,7 +3,6 @@ namespace DesignPatterns.Observer
 {
     public class StockObserver : IObserver
     {
-        
         static int observerIdTracker;
         double[] prices;
         int observerId;
