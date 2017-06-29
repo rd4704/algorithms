@@ -78,6 +78,39 @@ namespace Algorithms
 			return null;
 		}
 
+        public bool PathExists(Employee root, string fromName, string toName) 
+        {
+            if (fromName == toName) {
+                return true;
+            }
+
+			Queue<Employee> Q = new Queue<Employee>();
+			HashSet<Employee> S = new HashSet<Employee>();
+            Employee fromN = Search(root, fromName);
+
+			Q.Enqueue(fromN);
+			S.Add(fromN);
+
+			while (Q.Count > 0)
+			{
+				Employee e = Q.Dequeue();
+                if (e.name == toName)
+                {
+                    return true;
+                }
+                foreach (Employee colleague in e.Employees)
+				{
+					if (!S.Contains(colleague))
+					{
+						Q.Enqueue(colleague);
+						S.Add(colleague);
+					}
+				}
+			}
+
+            return false;
+        }
+
 		public void Traverse(Employee root)
 		{
 			Queue<Employee> traverseOrder = new Queue<Employee>();
