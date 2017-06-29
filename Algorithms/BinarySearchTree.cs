@@ -78,5 +78,30 @@ namespace Algorithms
 
             return node;
         }
+
+		// Iterative Inorder traversal
+		public void IterativeInorder(Node root)
+		{
+			if (root == null)
+			{
+				return;
+			}
+
+			Node node = root.left;
+			while (node != null)
+			{
+				Console.WriteLine(node.data);
+				node = node.left;
+			}
+
+			Console.WriteLine(root.data);
+
+			node = root.right;
+			while (node != null)
+			{
+				Console.WriteLine(node.data);
+				node = node.right;
+			}
+		}
     }
 }
