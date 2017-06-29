@@ -20,8 +20,7 @@ namespace Algorithms
 			{
 				val = lru.Get(key);
 			}
-			catch (Exception ex)
-			{
+			catch (Exception ex) {
 			}
 
 			return val;
